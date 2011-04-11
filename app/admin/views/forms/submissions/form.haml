@@ -1,0 +1,15 @@
+- form! [@form, @submission], :as => :submission, :url => @submission.admin_path
+
+- tab :submission do
+  - @form.fields.each do |field|
+    = render_field(field)
+  
+- sidebar do
+  .buttons
+    = link_to "Back to list", @form, :class => 'primary'
+  
+  %hr
+  
+  %p.owner Submitted: #{timestamp(@submission.created_at)}
+
+= plugin_stylesheet :forms, "forms-admin"

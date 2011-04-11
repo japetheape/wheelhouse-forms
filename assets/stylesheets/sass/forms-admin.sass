@@ -1,0 +1,238 @@
+@import compass
+
+=field
+  position: relative
+  margin: 10px 0
+  padding: 10px 10px 10px 20px
+  +border-radius(4px)
+
+=colored-field( !background, !border, !text )
+  background: !background
+  border: 1px solid !border
+  
+  label
+    color: !text
+  
+  .drag
+    border-right: 1px solid !border
+
+=blue
+  +colored-field(#f3f7fa, #cbd4da, #76828a)
+
+=green
+  +colored-field(#f3f8f4, #d3dbd2, #748572)
+
+=orange
+  +colored-field(#faf8f0, #e1ddc8, #8c8977)
+
+=purple
+  +colored-field(#fdfafd, #e3d2e3, #987898)
+
+#fields
+  label
+    display: inline
+    
+  input[type=text]
+    width: 40%
+
+  select
+    margin: 0.4em 0
+    padding: 0.5% 0.2% 0.2% 0.2%
+    font-size: 110%
+
+  input, select
+    font-size: 100%
+    
+    &.placeholder
+      color: #ccc
+  
+  label
+    color: #545454
+    font-weight: bold
+    margin-right: 0.5em
+    
+    &.required
+      float: right
+      margin: 0.5em 0
+      margin-right: 15%
+      font-weight: normal
+      font-size: 95%
+      
+      input
+        margin-right: 4px
+  
+  span.note
+    font-size: 95%
+    color: #a9a9a9
+  
+  .field-set
+    +field
+    background: #fdfefe
+    border: 1px solid #ccc
+    
+    .placeholder, .text-field, .text-area, .select-field, .checkbox, .states-dropdown, .countries-dropdown, .radio-buttons, .checkboxes, .custom-field, .content-field
+      margin-left: 0
+      margin-right: 0
+    
+  .text-field, .text-area, .select-field, .checkbox, .states-dropdown, .countries-dropdown, .radio-buttons, .checkboxes, .custom-field, .content-field
+    +field
+    min-height: 26px
+    padding: 6px 6px 6px 38px
+    
+    input[type=text]
+      width: 50%
+    
+    select
+      width: 52%
+    
+    .drag
+      width: 24px
+    
+    a.delete
+      top: 12px
+      right: 8px
+  
+  .text-field, .text-area, .content-field
+    +blue
+  
+  .checkbox, .radio-buttons, .checkboxes
+    +orange
+  
+  .select-field, .states-dropdown, .countries-dropdown
+    +green
+  
+  .custom-field
+    +purple
+  
+  .drag-placeholder
+    +field
+    border: 1px dashed #ccc
+    padding: 6px 6px 6px 38px
+  
+  .custom-field input[type=text]
+    width: 40%
+  
+  ul.options
+    line-height: 2.6em
+    min-height: 2em
+    margin-top: 0.5em
+    
+    li
+      display: inline
+    
+      input[type=text]
+        width: auto
+        min-width: 8em
+  
+  .drag
+    position: absolute
+    top: 0
+    left: 0
+    cursor: move
+    width: 7px
+    height: 100%
+    background: url(/assets/admin/images/backgrounds/drag.png) repeat
+    border-right: 1px solid #dfdfdf
+    +border-left-radius(4px)
+    
+    img
+      margin: 12px 4px
+  
+  .fields
+    min-height: 100px
+  
+  a.delete
+    position: absolute
+    right: 14px
+    top: 16px
+    z-index: 99
+    width: 16px
+    height: 16px
+    background: url(/assets/admin/images/icons/delete-item.png) no-repeat
+    text-indent: -9999px
+    opacity: 0.5
+    
+    &:hover
+      opacity: 1.0
+
+.tools li
+  a
+    padding-left: 45px
+    background-position: 17px center
+    
+    &:hover
+      background-color: #d3dadf
+
+  &.text-field a
+    background-image: url(../images/text-field.png)
+
+  &.text-area a
+    background-image: url(../images/text-area.png)
+  
+  &.select-field a
+    background-image: url(../images/select.png)
+  
+  &.checkbox a
+    background-image: url(../images/checkbox.png)
+  
+  &.checkboxes a
+    background-image: url(../images/checkboxes.png)
+
+  &.radio-buttons a
+    background-image: url(../images/radio-buttons.png)
+  
+  &.field-set a
+    background-image: url(../images/field-set.png)
+  
+  &.states-dropdown a
+    background-image: url(../images/states.png)
+  
+  &.countries-dropdown a
+    background-image: url(../images/countries.png)
+    
+  &.content-field a
+    background-image: url(../images/content.png)
+    
+  &.custom-field a
+    background-image: url(../images/custom.png)
+
+p.export-csv
+  margin: 2em 0
+  text-align: center
+  font-size: 110%
+
+  a
+    background: url(../images/csv.png) no-repeat 8px
+    padding: 10px 8px 10px 32px
+    color: #4991b3
+    text-decoration: none
+    border-radius: 6px
+    -moz-border-radius: 6px
+    -webkit-border-radius: 6px
+
+    &:hover
+      background-color: #f1ecc8
+      border: 1px solid #c4c0a3
+      padding: 9px 7px 9px 31px
+      background-position: 7px
+      color: #696757
+
+.field ul
+  list-style: disc inside
+  margin-left: 1%
+  
+  li
+    margin-bottom: 0.2em
+  
+  input
+    width: 93%
+
+.shaded
+  h2
+    border-bottom: 1px solid #ddd
+    padding-bottom: 5px
+    margin-right: 6%
+  
+  .inline input
+    margin-right: 1em
+    

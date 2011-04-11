@@ -1,0 +1,19 @@
+- tab :submissions => "submissions"
+
+- sidebar do
+  .buttons
+    = link_to icon('publish.png') + " Form Designer", edit_forms_form_path(@form), :class => "primary"
+  
+  /%p.export-csv
+  /  = link_to "Export Results as CSV", "#"#, forms_form_submissions_path(@form, :format => :csv)
+  
+  %hr
+
+  - if last_submission = @form.submissions.first
+    %p.owner Last submission: #{timestamp(last_submission.created_at)}
+  
+  = owner
+  
+  %hr
+
+= plugin_stylesheet :forms, "forms-admin"

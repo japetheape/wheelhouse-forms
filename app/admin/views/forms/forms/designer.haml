@@ -1,0 +1,43 @@
+- tab :fields do
+  #fields{ "data-prefix" => "form[fields]" }
+    = render_fields(@form.fields, "form[fields]")
+  
+  = field_template "field-set-template", Forms::Fields::FieldSet
+  = field_template "text-field-template", Forms::Fields::TextField
+  = field_template "text-area-template", Forms::Fields::TextArea
+  = field_template "select-field-template", Forms::Fields::SelectField
+  = field_template "checkbox-template", Forms::Fields::Checkbox
+  = field_template "checkboxes-template", Forms::Fields::Checkboxes
+  = field_template "radio-buttons-template", Forms::Fields::RadioButtons
+  = field_template "states-dropdown-template", Forms::Fields::StatesDropdown
+  = field_template "countries-dropdown-template", Forms::Fields::CountriesDropdown
+  = field_template "content-field-template", Forms::Fields::ContentField
+  = field_template "custom-field-template", Forms::Fields::CustomField
+
+- tab :content do
+  = field :title do
+    = form.text_field :title, :title => true
+    = note "The form title will appear in the title bar of the user's browser window."
+    
+  = content
+
+- sidebar do
+  = render "wheelhouse/resource/default_sidebar"
+  
+  %ul#primary-tools.tools
+    %li.text-field= link_to "Add Text Field", "#"
+    %li.text-area= link_to "Add Text Area", "#"
+    %li.select-field= link_to "Add Select Field", "#"
+    %li.checkbox= link_to "Add Single Checkbox", "#"
+    %li.checkboxes= link_to "Add Checkboxes", "#"
+    %li.radio-buttons= link_to "Add Radio Buttons", "#"
+    %li.field-set= link_to "Add Field Set", "#"
+  
+  %ul#extra-tools.tools
+    %li.states-dropdown= link_to "Add States Dropdown", "#"
+    %li.countries-dropdown= link_to "Add Countries Dropdown", "#"
+    %li.content-field= link_to "Add Content Field", "#"
+    %li.custom-field= link_to "Add Custom Field", "#"
+
+= plugin_stylesheet :forms, "forms-admin"
+= plugin_javascript :forms, "forms-admin.js"
