@@ -1,0 +1,15 @@
+!!!
+
+%html
+  %head
+  
+  %body
+    %p= link_to "View this submission online", forms_form_submission_url(@form, @submission, :host => @form.site.domain)
+    
+    %p
+      %strong Submitted at:
+      = @submission.created_at.to_s(:long)
+    
+    - @form.fields.each do |field|
+      = render_field(field)
+      

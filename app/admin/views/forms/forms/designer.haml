@@ -21,6 +21,14 @@
     
   = content
 
+- tab :email do
+  = field :recipients_string do
+    = form.text_field :recipients_string
+    = note "Separate email addresses with commas."
+  
+  = field :subject do
+    = form.text_field :subject
+
 - sidebar do
   = render "wheelhouse/resource/default_sidebar"
   

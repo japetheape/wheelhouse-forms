@@ -7,6 +7,8 @@ class Forms::Form < Wheelhouse::Resource
   
   property :title, String, :required => true, :translate => true
   property :fields, FieldCollection, :default => [Forms::Fields::FieldSet.new]
+  property :recipients, MongoModel::Collection[String]
+  property :subject, String, :default => "Form Submission"
   
   has_many :submissions, :class => "Forms::Submission"
   
@@ -30,9 +32,16 @@ class Forms::Form < Wheelhouse::Resource
   def submit(params)
     submissions.build(:params => params) do |submission|
       submission.save!
+      deliver(submission)
     end
     
     @success = true
+  end
+  
+  def deliver(submission)
+    Forms::Mailer.submission(self, submission).deliver unless recipients.empty?
+  rescue
+    # Mail delivery failed
   end
   
   def success?
@@ -49,6 +58,14 @@ class Forms::Form < Wheelhouse::Resource
       result = result.fields.first if result.is_a?(Forms::Fields::FieldSet)
       result
     end
+  end
+  
+  def recipients_string
+    recipients.join(', ')
+  end
+  
+  def recipients_string=(recipients)
+    self.recipients = recipients.split(/,/).map(&:strip)
   end
   
   def handler
