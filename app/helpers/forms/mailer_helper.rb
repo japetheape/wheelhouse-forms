@@ -9,6 +9,8 @@ module Forms::MailerHelper
       render_custom_field(field)
     when Forms::Fields::Checkboxes
       render_array(field, @submission.value_for(field) || ["None given"])
+    when Forms::Fields::ContentField
+      # Nothing
     else
       render_text_field(field, @submission.value_for(field))
     end
