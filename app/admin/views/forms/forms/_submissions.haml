@@ -1,16 +1,20 @@
-- @submissions = @form.submissions.paginate(:page => params[:p])
+- @submissions = resource.submissions.paginate(:page => params[:p])
 
 %h2 Latest Submissions
 
-= table_for @submissions do |t, submission|
-  - t.resource submission
+= table_for Forms::Submission do |table|
+  - table.rows(@submissions) do |row, submission|
+    - row.resource = submission
   
-  - if @form.first_content_field
-    - t.column(@form.first_content_field.label) { submission.value_for(@form.first_content_field) }
+    - if resource.first_content_field
+      = row.column(resource.first_content_field.label) { submission.value_for(resource.first_content_field) }
     
-  - t.column(:submitted_at) { submission.created_at.in_time_zone.to_s(:long) }
+    = row.column(:submitted_at) { submission.created_at.in_time_zone.to_s(:long) }
   
-  - t.controls do |controls|
-    - controls.delete
+    = row.controls do |c|
+      = c.delete
+  
+  - table.empty do
+    No submissions have been posted.
 
 = will_paginate @submissions
