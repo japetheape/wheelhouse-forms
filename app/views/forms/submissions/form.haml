@@ -12,4 +12,5 @@
   
   %p.owner Submitted: #{timestamp(@submission.created_at)}
 
-= plugin_stylesheet :forms, "forms-admin"
+- content_for(:head) do
+  = stylesheet_link_tag "forms/admin"

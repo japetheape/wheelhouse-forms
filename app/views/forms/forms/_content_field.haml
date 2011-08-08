@@ -1,7 +1,7 @@
 .content-field{ 'data-index' => index }
   %input{:type => "hidden", :name => "#{prefix}[type]", :value => content_field.type}
   
-  .drag= plugin_icon :forms, "images/content.png", :alt => "Content Field", :title => "Content Field"
+  .drag= image_tag "forms/content.png", :alt => "Content Field", :title => "Content Field"
   
   %textarea.editor{:name => "#{prefix}[content]", :rows => 5, :value => content_field.content}
   

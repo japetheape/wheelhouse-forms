@@ -4,7 +4,7 @@
 
 = table_for Forms::Submission do |table|
   - table.rows(@submissions) do |row, submission|
-    - row.resource = submission
+    - row.resource = [@form, submission]
   
     - if resource.first_content_field
       = row.column(resource.first_content_field.label) { submission.value_for(resource.first_content_field) }

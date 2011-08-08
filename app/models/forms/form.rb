@@ -14,7 +14,7 @@ class Forms::Form < Wheelhouse::Resource
   
   activities :all
   
-  icon :forms, "images/form.png"
+  icon "forms/form.png"
   
   include ActionView::Helpers::FormTagHelper
   attr_accessor :output_buffer, :context

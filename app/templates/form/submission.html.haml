@@ -4,7 +4,7 @@
   %head
   
   %body
-    %p= link_to "View this submission online", forms_form_submission_url(@form, @submission, :host => @form.site.domain)
+    %p= link_to "View this submission online", @submission.admin_url
     
     %p
       %strong Submitted at:

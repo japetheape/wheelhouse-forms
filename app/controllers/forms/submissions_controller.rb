@@ -2,7 +2,7 @@ class Forms::SubmissionsController < Wheelhouse::ResourceController
   belongs_to :form, :class_name => Forms::Form
   self.resource_class = Forms::Submission
   
-  breadcrumb { ["Site Overview", wheelhouse_site_url] }
+  manage_site_breadcrumb
   breadcrumb { [parent.label, parent] }
   
   actions :show, :destroy

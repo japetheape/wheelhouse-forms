@@ -1,6 +1,12 @@
 en:
   resource:
     attributes:
-      forms:
-        form:
-          recipients_string: Recipients
+      forms/form:
+        recipients_string: Recipients
+  
+  helpers:
+    label:
+      form:
+        title: Form Title
+        content: Form Content
+        

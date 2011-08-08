@@ -1,7 +1,7 @@
 .custom-field{ 'data-index' => index }
   %input{:type => "hidden", :name => "#{prefix}[type]", :value => custom_field.type}
   
-  .drag= plugin_icon :forms, "images/custom.png", :alt => "Custom Field", :title => "Custom Field"
+  .drag= image_tag "forms/custom.png", :alt => "Custom Field", :title => "Custom Field"
   
   %input{:type => "text", :name => "#{prefix}[label]", :title => "Custom Field Label", :placeholder => "Custom Field Label", :value => custom_field.label}
   

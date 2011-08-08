@@ -2,7 +2,7 @@
 
 - sidebar do
   .buttons
-    = link_to icon('publish.png') + " Form Designer", edit_forms_form_path(@form), :class => "primary"
+    = link_to icon('publish.png') + " Form Designer", edit_form_path(@form), :class => "primary"
   
   /%p.export-csv
   /  = link_to "Export Results as CSV", "#"#, forms_form_submissions_path(@form, :format => :csv)
@@ -16,4 +16,5 @@
   
   %hr
 
-= plugin_stylesheet :forms, "forms-admin"
+- content_for(:head) do
+  = stylesheet_link_tag "forms/admin"

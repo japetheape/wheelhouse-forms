@@ -1,7 +1,7 @@
 .states-dropdown{ 'data-index' => index }
   %input{:type => "hidden", :name => "#{prefix}[type]", :value => states_dropdown.type}
   
-  .drag= plugin_icon :forms, "images/states.png", :alt => "States Dropdown", :title => "States Dropdown"
+  .drag= image_tag "forms/states.png", :alt => "States Dropdown", :title => "States Dropdown"
   
   %input{:type => "text", :name => "#{prefix}[label]", :title => "States Dropdown Label", :placeholder => "States Dropdown Label", :value => states_dropdown.label}
   

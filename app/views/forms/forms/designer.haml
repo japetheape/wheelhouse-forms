@@ -30,7 +30,7 @@
     = form.text_field :subject
 
 - sidebar do
-  = render "wheelhouse/resource/default_sidebar"
+  = render "wheelhouse/admin/resource/default_sidebar"
   
   %ul#primary-tools.tools
     %li.text-field= link_to "Add Text Field", "#"
@@ -47,5 +47,8 @@
     %li.content-field= link_to "Add Content Field", "#"
     %li.custom-field= link_to "Add Custom Field", "#"
 
-= plugin_stylesheet :forms, "forms-admin"
-= plugin_javascript :forms, "forms-admin.js"
+- content_for(:head) do
+  = stylesheet_link_tag "forms/admin"
+
+- content_for(:javascript) do
+  = javascript_include_tag "forms/admin"

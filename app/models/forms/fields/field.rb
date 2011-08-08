@@ -1,6 +1,7 @@
 module Forms::Fields
   class Field < Wheelhouse::EmbeddedResource
     include ActionView::Helpers::FormTagHelper
+    include ActionView::Helpers::OutputSafetyHelper
     attr_accessor :output_buffer
 
     def self.partial

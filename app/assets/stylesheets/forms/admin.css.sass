@@ -6,15 +6,15 @@
   padding: 10px 10px 10px 20px
   +border-radius(4px)
 
-=colored-field( !background, !border, !text )
-  background: !background
-  border: 1px solid !border
+=colored-field( $background, $border, $text )
+  background: $background
+  border: 1px solid $border
   
   label
-    color: !text
+    color: $text
   
   .drag
-    border-right: 1px solid !border
+    border-right: 1px solid $border
 
 =blue
   +colored-field(#f3f7fa, #cbd4da, #76828a)
@@ -131,7 +131,7 @@
     cursor: move
     width: 7px
     height: 100%
-    background: url(/assets/admin/images/backgrounds/drag.png) repeat
+    background: image-url("wheelhouse/backgrounds/drag.png") repeat
     border-right: 1px solid #dfdfdf
     +border-left-radius(4px)
     
@@ -148,7 +148,7 @@
     z-index: 99
     width: 16px
     height: 16px
-    background: url(/assets/admin/images/icons/delete-item.png) no-repeat
+    background: image-url("wheelhouse/icons/delete-item.png") no-repeat
     text-indent: -9999px
     opacity: 0.5
     
@@ -164,37 +164,37 @@
       background-color: #d3dadf
 
   &.text-field a
-    background-image: url(../images/text-field.png)
+    background-image: image-url("forms/text-field.png")
 
   &.text-area a
-    background-image: url(../images/text-area.png)
+    background-image: image-url("forms/text-area.png")
   
   &.select-field a
-    background-image: url(../images/select.png)
+    background-image: image-url("forms/select.png")
   
   &.checkbox a
-    background-image: url(../images/checkbox.png)
+    background-image: image-url("forms/checkbox.png")
   
   &.checkboxes a
-    background-image: url(../images/checkboxes.png)
+    background-image: image-url("forms/checkboxes.png")
 
   &.radio-buttons a
-    background-image: url(../images/radio-buttons.png)
+    background-image: image-url("forms/radio-buttons.png")
   
   &.field-set a
-    background-image: url(../images/field-set.png)
+    background-image: image-url("forms/field-set.png")
   
   &.states-dropdown a
-    background-image: url(../images/states.png)
+    background-image: image-url("forms/states.png")
   
   &.countries-dropdown a
-    background-image: url(../images/countries.png)
+    background-image: image-url("forms/countries.png")
     
   &.content-field a
-    background-image: url(../images/content.png)
+    background-image: image-url("forms/content.png")
     
   &.custom-field a
-    background-image: url(../images/custom.png)
+    background-image: image-url("forms/custom.png")
 
 p.export-csv
   margin: 2em 0
@@ -202,7 +202,7 @@ p.export-csv
   font-size: 110%
 
   a
-    background: url(../images/csv.png) no-repeat 8px
+    background: image-url("forms/csv.png") no-repeat 8px
     padding: 10px 8px 10px 32px
     color: #4991b3
     text-decoration: none

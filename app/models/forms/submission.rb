@@ -1,4 +1,6 @@
-class Forms::Submission < Wheelhouse::Resource
+class Forms::Submission < Wheelhouse::BasicResource
+  include Wheelhouse::Resource::AdminPath
+  
   property :params, Hash
   timestamps!
   
@@ -11,6 +13,10 @@ class Forms::Submission < Wheelhouse::Resource
   end
   
   def admin_path
-    forms_form_submission_path(form_id, id)
+    form_submission_path(form_id, id)
+  end
+  
+  def admin_url
+    form_submission_url(form, id, :host => form.site.domain)
   end
 end

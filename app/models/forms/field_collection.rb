@@ -1,5 +1,5 @@
 class Forms::FieldCollection < MongoModel::Collection[Forms::Fields::Field]
-  include Wheelhouse::Admin::SafeOutputHelper
+  include ActionView::Helpers::OutputSafetyHelper
   
   def to_html(template)
     safe_join(map { |field| field.to_html(template) })

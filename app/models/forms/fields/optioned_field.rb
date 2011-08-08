@@ -2,8 +2,6 @@ module Forms::Fields
   module OptionedField
     extend ActiveSupport::Concern
   
-    include Wheelhouse::Admin::SafeOutputHelper
-  
     included do
       property :options, MongoModel::Collection[String]
     end

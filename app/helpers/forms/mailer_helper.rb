@@ -1,6 +1,4 @@
 module Forms::MailerHelper
-  include Wheelhouse::Admin::SafeOutputHelper
-  
   def render_field(field)
     case field
     when Forms::Fields::FieldSet
