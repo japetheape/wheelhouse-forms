@@ -1,7 +1,7 @@
 %div{ :class => type, 'data-index' => index }
   %input{:type => "hidden", :name => "#{prefix}[type]", :value => basic_field.type}
   
-  .drag= image_tag "forms/#{icon}.png", :alt => description, :title => description
+  .drag= image_tag "wheelhouse-forms/#{icon}.png", :alt => description, :title => description
   
   %input{:type => "text", :name => "#{prefix}[label]", :title => "#{description} Label", :placeholder => "#{description} Label", :value => basic_field.label}
   

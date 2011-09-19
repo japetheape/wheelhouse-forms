@@ -11,7 +11,7 @@ module Forms
     end
     
     initializer :precompile_assets do |app|
-      app.config.assets.precompile += %w(forms/admin.js forms/admin.css)
+      app.config.assets.precompile += %w(wheelhouse-forms/admin.*)
     end
   end
 end
