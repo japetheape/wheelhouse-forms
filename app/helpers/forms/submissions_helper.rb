@@ -27,7 +27,7 @@ module Forms::SubmissionsHelper
 
 private
   def labelled_field(field)
-    field(field.label, field.label.html_safe) do
+    field(field.label, :label => field.label.html_safe) do
       yield
     end
   end
