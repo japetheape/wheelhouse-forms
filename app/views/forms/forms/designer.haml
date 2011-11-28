@@ -12,7 +12,7 @@
   = field_template "states-dropdown-template", Forms::Fields::StatesDropdown
   = field_template "countries-dropdown-template", Forms::Fields::CountriesDropdown
   = field_template "content-field-template", Forms::Fields::ContentField
-  = field_template "custom-field-template", Forms::Fields::CustomField
+  = field_template "custom-field-template", Forms::Fields::CustomField if Forms::Plugin.config.wheelhouse.forms.custom_fields
 
 - tab :content do
   = field :title do
@@ -45,7 +45,7 @@
     %li.states-dropdown= link_to "Add States Dropdown", "#"
     %li.countries-dropdown= link_to "Add Countries Dropdown", "#"
     %li.content-field= link_to "Add Content Field", "#"
-    %li.custom-field= link_to "Add Custom Field", "#"
+    %li.custom-field= link_to "Add Custom Field", "#" if Forms::Plugin.config.wheelhouse.forms.custom_fields
 
 - content_for(:head) do
   = stylesheet_link_tag "wheelhouse-forms/admin"

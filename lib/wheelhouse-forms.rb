@@ -2,6 +2,11 @@ require "wheelhouse"
 
 module Forms
   class Plugin < Wheelhouse::Plugin
+    config.wheelhouse.forms = ActiveSupport::OrderedOptions.new
+    
+    # Disable custom fields by default
+    config.wheelhouse.forms.custom_fields = false
+    
     isolate_namespace Forms
     
     resource { Form }
