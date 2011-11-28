@@ -2,7 +2,7 @@
 
 - sidebar do
   .buttons
-    = link_to icon('publish.png') + " Form Designer", edit_form_path(@form), :class => "primary"
+    = button "Form Designer", :icon => :publish, :url => edit_form_path(@form)
   
   /%p.export-csv
   /  = link_to "Export Results as CSV", "#"#, forms_form_submissions_path(@form, :format => :csv)
