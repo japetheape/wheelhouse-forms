@@ -11,19 +11,13 @@ class Forms::FieldCollection < MongoModel::Collection[Forms::Fields::Field]
     result
   end
   
-  def self.mongomodel_accessors(property)
-    Module.new do
-      define_method("#{property.name}=") do |attrs|
-        case attrs
-        when Hash
-          self.fields = attrs.sort { |(a, _), (b, _)| a.to_i <=> b.to_i }.map { |_, field_attrs|
-            type = field_attrs.delete(:type).constantize
-            type.new(field_attrs)
-          }
-        else
-          write_attribute(property.name, attrs)
-        end
-      end
+  def self.cast(collection)
+    case collection
+    when Hash
+      sorted_attrs = collection.sort { |(a, _), (b, _)| a.to_i <=> b.to_i }.map { |_, attrs| attrs }
+      super(sorted_attrs)
+    else
+      super
     end
   end
 end

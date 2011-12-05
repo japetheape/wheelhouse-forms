@@ -176,11 +176,12 @@ var BaseSortableOptions = {
   items:       '> div',
   handle:      '> .drag',
   placeholder: 'drag-placeholder',
-  tolerance:   'pointer',
+  tolerance:   'intersect',
   forcePlaceholderSize: true,
-  stop:        refreshFields
+  stop:        refreshFields,
+  connectWith: '.fields'
 };
-var SortableOptions = $.extend({}, BaseSortableOptions, { connectWith: '.fields' });
+var SortableOptions = $.extend({}, BaseSortableOptions, { connectWith: '#fields, .fields' });
 
 $('#fields').sortable(BaseSortableOptions); // Top-level
 $('.fields').sortable(SortableOptions);     // Fieldsets

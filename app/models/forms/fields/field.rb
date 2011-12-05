@@ -11,7 +11,18 @@ module Forms::Fields
     def self.field_class
       partial.dasherize
     end
-
+    
+    def self.cast(attrs)
+      case attrs
+      when Hash
+        type = attrs.delete(:type)
+        klass = type ? type.constantize : self
+        klass.new(attrs)
+      else
+        super
+      end
+    end
+    
     delegate :field_class, :to => "self.class"
 
     def to_html(template)
