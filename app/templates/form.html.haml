@@ -3,4 +3,7 @@
 
 = @form.content
 
-= @form
+- if @form.success?
+  = @form.content("Success Message", :rows => 15)
+- else
+  = @form
