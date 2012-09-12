@@ -8,7 +8,7 @@ module Forms::Fields
     property :required, Boolean, :default => false
 
     def to_html(template)
-      super { select_tag(name, options_for_select(options)) }
+      super { select_tag(name, options_for_select(options), html_options) }
     end
   end
 end

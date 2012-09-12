@@ -34,6 +34,12 @@ module Forms::Fields
     end
 
   protected
+    def html_options
+      options = {}
+      options[:required] = "required" if respond_to?(:required?) && required?
+      options
+    end
+    
     def classes
       ["field"].tap do |classes|
         classes << field_class

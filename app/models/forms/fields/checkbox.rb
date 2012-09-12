@@ -5,7 +5,7 @@ module Forms::Fields
 
     def to_html(template)
       super do
-        label_tag { check_box_tag(name) + " " + label }
+        label_tag { check_box_tag(name, "1", false, html_options) + " " + label }
       end
     end
 
