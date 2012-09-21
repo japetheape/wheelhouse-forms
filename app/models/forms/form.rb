@@ -25,7 +25,7 @@ class Forms::Form < Wheelhouse::Resource
   
   def render(template)
     form_tag(path) do
-      fields.to_html(template) + content_tag(:div, submit_tag("Submit"), :class => "submit")
+      fields.to_html(template) + content_tag(:div, submit_tag(I18n.t("Submit")), :class => "submit")
     end
   end
   
